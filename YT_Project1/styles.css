@@ -1,0 +1,78 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Intro Section */
+.intro-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 2s ease;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+/* Zoom Effect on Scroll */
+body.scrolled .image-container {
+  transform: scale(4); /* Adjust as needed */
+}
+
+/* Horizontal Scroll Sections */
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  height: 100vh;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-section {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  flex: none;
+  scroll-snap-align: start;
+  padding: 20px;
+  text-align: center;
+}
+
+#bio { background-color: #2C3E50; }
+#work { background-color: #34495E; }
+#hobbies { background-color: #2980B9; }
+#lifestyle { background-color: #8E44AD; }
+#education { background-color: #16A085; }
+
+/* Contact Footer */
+.contact-footer {
+  padding: 50px;
+  background-color: #111;
+  color: white;
+  text-align: center;
+}
