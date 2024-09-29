@@ -10,6 +10,7 @@ html, body {
 
 body {
   height: 500vh; /* Large height to enable scrolling */
+  background: #111;
 }
 
 /* Circle Section */
@@ -18,7 +19,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #111;
   position: relative;
   z-index: 1;
 }
@@ -39,26 +39,41 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transition: transform 2s ease-out, opacity 2s ease-out, background-color 1.5s ease;
+}
+
+.blue-circle {
+  border-color: blue;
+  box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
+}
+
+.yellow-circle {
+  border-color: yellow;
+  box-shadow: 0 0 20px rgba(255, 223, 0, 0.8);
 }
 
 .name {
   font-size: 1.5rem;
   color: white;
   opacity: 0;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 2s ease-out, transform 2s ease-out;
   z-index: 2;
 }
 
-/* Zoom and disappear effect on scroll */
-body.scrolled .circle {
-  transform: scale(10); /* Circle zooms out */
-  opacity: 0; /* Disappears as it zooms */
+/* Slow down the animation */
+body.show-name .name {
+  opacity: 1;
+  transform: scale(1.5) translateY(-30px); /* Name zooms slightly */
 }
 
-body.scrolled .name {
-  opacity: 1;
-  transform: translateY(-50px) scale(2); /* Name zooms out and fades */
+body.circle-zoom-out .circle {
+  transform: scale(15); /* Circle zooms out larger */
+  opacity: 0; /* Disappears */
+}
+
+body.show-next .circle {
+  background-color: yellow;
+  transform: scale(0.5); /* Yellow circle scales down */
 }
 
 /* Parallax Scroll for Other Pages */
@@ -67,17 +82,21 @@ body.scrolled .name {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+  background-size: cover;
   color: white;
   text-align: center;
   opacity: 0;
-  transform: translateZ(100px);
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transform: translateZ(50px) scale(0.8); /* Start with zoomed out position */
+  transition: transform 2s ease-out, opacity 2s ease-out;
+  background-image: url('your-blur-background-image.jpg');
+  filter: blur(5px); /* Blur the background */
 }
 
-body.scrolled .page-section {
-  transform: translateZ(0); /* Appears from the back (Z-axis) */
+body.show-page .page-section {
+  transform: translateZ(0) scale(1); /* Normal size on parallax effect */
   opacity: 1; /* Fades in */
+  filter: blur(0); /* Removes blur */
 }
 
 /* Footer Contact Section */
