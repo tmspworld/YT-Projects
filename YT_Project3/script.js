@@ -3,10 +3,10 @@ var points = [],
     canvas = 
 document.getElementById('container'),
   context = canvas.getContext('2d'),
-  radius = 10,
+  radius = 5,
   boundaryX = 500,
   boundaryY = 500,
-  numberOfPoints = 36;
+  numberOfPoints = 120;
 
 init();
 
@@ -62,7 +62,7 @@ function resetVelocity(point, axis, dir) {
 function drawCircle(x, y) {
   context.beginPath();
   context.arc(x, y, radius, 0, 2 * Math.PI, false);
-  context.fillStyle = '#97badc';
+  context.fillStyle = 'red';
   context.fill();  
 }
 
@@ -70,8 +70,9 @@ function drawLine(x1, y1, x2, y2) {
   context.beginPath();
   context.moveTo(x1, y1);
   context.lineTo(x2, y2);
-  context.strokeStyle = '#8ab2d8'
+  context.strokeStyle = 'gray'
   context.stroke();
+  
 }  
 
 function draw() {
