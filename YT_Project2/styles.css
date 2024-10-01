@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  cursor: none; /* Hide the default cursor */
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(45deg);
+  border-radius: 50% 50% 0 0;
+  animation: spread 1s ease-out forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+@keyframes spread {
+  0% {
+      transform: scale(0.5) rotate(45deg);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(3) rotate(45deg);
+      opacity: 0;
+  }
+}
